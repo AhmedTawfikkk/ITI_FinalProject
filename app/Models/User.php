@@ -11,6 +11,15 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    public function role(){
+        return $this->belongsTo(Role::class);
+    }
+    public function borrowedbooks(){
+        return $this->belongsTo(BorrowedBook::class);
+    }
+
+
+
     /**
      * The attributes that are mass assignable.
      *
@@ -20,6 +29,9 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role_id',
+        'picture',
+        
     ];
 
     /**
