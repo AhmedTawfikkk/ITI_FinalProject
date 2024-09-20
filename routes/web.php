@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+//home
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
 // Student Dashboard
 Route::get('student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 
