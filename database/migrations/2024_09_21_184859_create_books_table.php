@@ -15,10 +15,12 @@ return new class extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->boolean('available')->default(true);
+            $table->string('Genre');
+            $table->string('published');
             $table->foreignIdFor(Author::class)->constrained()->cascadeOnDelete();
-            $table->string('cover');
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }
