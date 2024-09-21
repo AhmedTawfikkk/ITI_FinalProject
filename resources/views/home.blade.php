@@ -82,7 +82,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-white">Ready to Start Your Reading Journey?</h2>
             <p class="mt-4 text-lg text-gray-400">Join our online library today and access thousands of books at your fingertips.</p>
-            <a href="/signup" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">Join Now</a>
+            <a href="/register" class="mt-8 inline-block bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold">Join Now</a>
         </div>
     </section>
 

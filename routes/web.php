@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\CheckStudentRole;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
@@ -28,26 +29,28 @@ require __DIR__.'/auth.php';
 //Our Routes        
 
 //home
-Route::get('/', [HomeController::class, 'index'])->middleware('auth')->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
+Route::middleware(['auth', CheckStudentRole::class])->group(function () {
 // Student Dashboard
-Route::get('student/dashboard', [StudentController::class, 'dashboard'])->middleware('auth')->name('student.dashboard');
+Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 
 // View all books
-Route::get('books', [BookController::class, 'index'])->middleware('auth')->name('books.index');
+Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
 // View details of a single book
-Route::get('books/{book}', [BookController::class, 'show'])->middleware('auth')->name('books.show');
+Route::get('/books/{book}', [BookController::class, 'show'])->name('books.show');
 
 // Borrow a book
-Route::post('books/{book}/borrow', [BookController::class, 'borrow'])->middleware('auth')->name('books.borrow');
+Route::post('/books/{book}/borrow', [BookController::class, 'borrow'])->name('books.borrow');
 
 // Return a borrowed book
-Route::post('books/{book}/return', [BookController::class, 'return'])->middleware('auth')->name('books.return');
+Route::post('/books/{book}/return', [BookController::class, 'return'])->name('books.return');
 
 // View borrowed books and return details
-Route::get('student/borrowed-books', [StudentController::class, 'viewBorrowedBooks'])->middleware('auth')->name('student.borrowedBooks');
+Route::get('/student/borrowed-books', [StudentController::class, 'viewBorrowedBooks'])->name('student.borrowedBooks');
 
 // Update student profile
-Route::get('student/profile', [StudentController::class, 'editProfile'])->middleware('auth')->name('student.profile.edit');
-Route::post('student/profile', [StudentController::class, 'updateProfile'])->middleware('auth')->name('student.profile.update');
+Route::get('/student/profile', [StudentController::class, 'editProfile'])->name('student.profile.edit');
+Route::post('/student/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
+});

@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->foreignIdFor(Role::class)->constrained()->cascadeOnDelete();
-            $table->string('picture');
+            $table->foreignIdFor(Role::class)->default(2)->constrained()->cascadeOnDelete();
+            $table->string('picture')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
