@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class CheckStudentRole
+class CheckAdminRole
 {
     /**
      * Handle an incoming request.
@@ -19,7 +19,7 @@ class CheckStudentRole
 
          if (Auth::check()) {
             // Check if the user has the role of "student"
-            if (Auth::user()->role->title === 'student') {
+            if (Auth::user()->role->title === 'admin') {
                 return $next($request);
             }
     }
