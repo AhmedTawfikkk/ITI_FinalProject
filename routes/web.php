@@ -33,7 +33,7 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
 
-Route::middleware(['auth', CheckStudentRole::class])->group(function () {
+// Route::middleware(['auth', CheckStudentRole::class])->group(function () {
 // Student Dashboard
 Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
 
@@ -55,4 +55,4 @@ Route::get('/student/borrowed-books', [StudentController::class, 'viewBorrowedBo
 // Update student profile
 Route::get('/student/profile', [StudentController::class, 'editProfile'])->name('student.profile.edit');
 Route::post('/student/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
-});
+// });
