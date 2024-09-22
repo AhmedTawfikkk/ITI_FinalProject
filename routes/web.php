@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Middleware\CheckStudentRole;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
@@ -29,7 +30,8 @@ require __DIR__.'/auth.php';
 //Our Routes        
 
 //home
-Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/', [HomeController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
 
 Route::middleware(['auth', CheckStudentRole::class])->group(function () {
 // Student Dashboard
