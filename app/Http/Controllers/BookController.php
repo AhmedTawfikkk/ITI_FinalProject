@@ -20,13 +20,27 @@ class BookController extends Controller
         return view('books.show',compact('book'));
     }
 
-    public function borrow($book){
+    public function borrow($book_id){
+        $book=Book::find($book_id);
+        $book->available=false;
+        $book->save();
         $borrowedbook=BorrowedBook::create([
             'user_id'=>Auth::id(),
-            'book_id'=>$book,
+            'book_id'=>$book_id,
         ]);
 
         return redirect()->route('books.index',)->with('success', 'You have successfully borrowed the book!');
+
+    }
+
+    public function return($borrowedbook_id){
+        $borrowedbook=BorrowedBook::find($borrowedbook_id);
+        $borrowedbook->returned=true;
+        $borrowedbook->save();
+
+        $book=Book::find($borrowedbook->book_id);
+        $book->available = true;
+        $book->save();
 
     }
 }
