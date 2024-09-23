@@ -12,4 +12,5 @@ class BorrowedBooksController extends Controller
 
         return view('borrowedbooks.index',["books"=>$books]);
     }
+    
 }

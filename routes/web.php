@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Middleware\CheckStudentRole;
+use App\Http\Middleware\CheckAdminRole;
 use App\Http\Middleware\RedirectIfAuthenticated;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Controllers\BorrowedBooksController;
 
 
 
@@ -56,3 +57,6 @@ Route::get('/student/borrowed-books', [StudentController::class, 'viewBorrowedBo
 Route::get('/student/profile', [StudentController::class, 'editProfile'])->name('student.profile.edit');
 Route::post('/student/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
 // });
+Route::middleware(['auth', CheckAdminRole::class])->group(function () {
+    route::get('/admin/borrowed-books',[BorrowedBooksController::class,'index']);
+});
