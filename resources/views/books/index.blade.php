@@ -18,7 +18,7 @@
                 <a href="/" class="flex-shrink-0 flex items-center text-2xl font-bold text-gray-800">OnlineLibrary</a>
             </div>
             <div class="flex items-center space-x-4">
-                <a href="/profile" class="text-gray-600 hover:text-gray-900">Profile</a>
+                <a href="/student/profile" class="text-gray-600 hover:text-gray-900">Profile</a>
                 <form method="POST" action="/logout" class="inline">
                     @csrf
                     <button type="submit" class="text-gray-600 hover:text-gray-900">Logout</button>
