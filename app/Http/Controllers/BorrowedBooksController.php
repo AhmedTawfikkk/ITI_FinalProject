@@ -10,7 +10,7 @@ class BorrowedBooksController extends Controller
     public function index(){
         $books=BorrowedBook::all();
 
-        return view('borrowedbooks.index',["books"=>$books]);
+        return view('admin.borrowedbooks',["books"=>$books]);
     }
     
 }
