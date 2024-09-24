@@ -37,7 +37,7 @@
                     @foreach ($borrowedbooks as $borrowedbook)
                     <div class="p-6 bg-gray-50 rounded-lg shadow-md">
                         <h4 class="text-xl font-semibold text-gray-900">{{$borrowedbook->book->title}}</h4>
-                        <p class="mt-2 text-gray-500">Author: {{$borrowedbook->book->author->name}}</p>
+                        <p class="mt-2 text-gray-500">Author: {{$borrowedbook->book->author_name}}</p>
                         <p class="mt-2 text-gray-500">Genre: {{$borrowedbook->book->Genre}}</p>
                         <p class="mt-2 text-gray-500">Borrowed: </p>
                         <p class="mt-2 text-gray-500">Due: September 15, 2024</p>
