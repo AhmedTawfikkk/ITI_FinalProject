@@ -55,9 +55,10 @@ Route::get('/student/profile',[StudentController::class,'viewprofile'])->name('s
 // Update student profile
 //Route::get('/student/profile/edit', [StudentController::class, 'editProfile'])->name('student.profile.edit');
 
+//upload the photo in db
 Route::post('/student/profile/edit/photo',[StudentController::class,'uploadphoto'])->name('upload.photo');
 
-Route::post('/student/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
+//Route::post('/student/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
 
 
 
