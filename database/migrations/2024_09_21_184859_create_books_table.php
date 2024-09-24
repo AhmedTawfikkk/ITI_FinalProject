@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('available')->default(true);
             $table->string('Genre');
             $table->string('published');
-            $table->foreignIdFor(Author::class)->constrained()->cascadeOnDelete();
+            $table->string('author_name');
             $table->string('cover')->nullable();
             $table->timestamps();
         });

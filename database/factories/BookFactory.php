@@ -18,8 +18,8 @@ class BookFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(),
-            'author_id' => Author::factory(), // This will create a new author for each book
+            'title' => fake()->sentence(), 
+            'author_name' =>fake()->name(),
             'description' => fake()->text(200),
             'Genre' => fake()->word(),
             'published' => fake()->date(),

@@ -26,4 +26,9 @@ class StudentController extends Controller
     
          return back()->with('success', 'Photo uploaded successfully!');
     }
+    public function index(){
+        $Users=User::all();
+
+        return view('admin.borrowedbooks',["Users"=>$Users]);
+    }
 }

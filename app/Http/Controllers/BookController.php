@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Auth;
 class BookController extends Controller
 {
     public function index(){
-        $books=Book::with('author')->where('available',true)->get();
+        $books=Book::where('available',true)->get();
 
         return view('books.index',compact('books'));
     }
 
     public function show( $book){
-        $book=Book::with('author')->find($book);
+        $book=Book::find($book);
         return view('books.show',compact('book'));
     }
 
@@ -44,5 +44,52 @@ class BookController extends Controller
 
         return back()->with('success', 'the book returned successfully');
 
+    }
+    public function create()
+    {
+        return view('createBook');
+    }
+    public function store(Request $request)
+    {
+        $data=$request->all();
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+            'Genre'=> 'required',
+            'published'=> 'required',
+            'cover'=> 'required',
+        ]);
+
+        $Book=new Book;
+        $Book->title=$data['title'];
+        $Book->body=$data['body'];
+        
+        $Book->created_at = now();
+        $Book->updated_at = now();
+        $Book->user_id=Auth::id();
+        $Book->save();
+        return redirect('/posts');
+    }
+    public function edit(string $id)
+    {
+        $Book=Book::find($id);
+       
+        return view('update',['Book' => $Book]);
+    }
+    public function update(Request $request, string $id)
+    {
+        $post=post::find($id);
+        $post->title = $request['title'];
+        $post->body = $request['body'];
+        $post->updated_at = now();
+        $post->save();
+        return redirect('/posts');
+
+    }
+    public function destroy(string $id)
+    {
+        $Book = Book::find($id);
+        $Book->delete();
+        return redirect('/posts');
     }
 }

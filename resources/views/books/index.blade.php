@@ -47,7 +47,7 @@
                     <div class="p-6 bg-gray-50 rounded-lg shadow-md">
                         
                         <h3 class="text-xl font-semibold text-gray-900">{{$book->title}}</h3>
-                        <p class="mt-2 text-gray-500">Author: {{$book->author->name}}</p>
+                        <p class="mt-2 text-gray-500">Author: {{$book->author_name}}</p>
                         <p class="mt-2 text-gray-500">Genre: {{$book->Genre}}</p>
                         <p class="mt-2 text-gray-500">Published: {{$book->published}}</p>
                         <a href="/books/{{$book->id}}" class="mt-4 inline-block bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">View Details</a>

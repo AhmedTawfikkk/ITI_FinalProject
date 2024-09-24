@@ -25,7 +25,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-8">
                 <h1 class="text-4xl font-extrabold text-gray-900">{{ $book->title }}</h1>
-                <p class="mt-2 text-lg text-gray-500">{{ $book->author->name }}</p>
+                <p class="mt-2 text-lg text-gray-500">{{ $book->author_name }}</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Book Image -->
