@@ -49,14 +49,21 @@ Route::post('/books/{book}/borrow', [BookController::class, 'borrow'])->name('bo
 
 // Return a borrowed book
 Route::post('/books/{book}/return', [BookController::class, 'return'])->name('books.return');
-
-// View borrowed books and return details
-Route::get('/student/borrowed-books', [StudentController::class, 'viewBorrowedBooks'])->name('student.borrowedBooks');
+//return the student profile
+Route::get('/student/profile',[StudentController::class,'viewprofile'])->name('student.profile');
 
 // Update student profile
-Route::get('/student/profile', [StudentController::class, 'editProfile'])->name('student.profile.edit');
+//Route::get('/student/profile/edit', [StudentController::class, 'editProfile'])->name('student.profile.edit');
+
+Route::post('/student/profile/edit/photo',[StudentController::class,'uploadphoto'])->name('upload.photo');
+
 Route::post('/student/profile', [StudentController::class, 'updateProfile'])->name('student.profile.update');
-// });
+
+
+
+
+
+
 Route::middleware(['auth', CheckAdminRole::class])->group(function () {
     route::get('/admin/borrowed-books',[BorrowedBooksController::class,'index']);
 });

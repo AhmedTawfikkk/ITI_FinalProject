@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 class BookController extends Controller
 {
     public function index(){
-        $books=Book::with('author')->get();
+        $books=Book::with('author')->where('available',true)->get();
 
         return view('books.index',compact('books'));
     }
@@ -41,6 +41,8 @@ class BookController extends Controller
         $book=Book::find($borrowedbook->book_id);
         $book->available = true;
         $book->save();
+
+        return back()->with('success', 'the book returned successfully');
 
     }
 }
