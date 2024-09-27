@@ -30,7 +30,8 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <!-- Book Image -->
                 <div class="flex justify-center">
-                    <img src="{{ asset($book->cover) }}" alt="{{ $book->title }} Cover" class="w-64 h-80 rounded-lg shadow-lg">
+                <img src="{{ $book->cover? Storage::url($book->cover) : asset('images/coverdefault.png') }}" alt="Profile Photo"
+                class="w-32 h-32 rounded-full mx-auto">
                 </div>
 
                 <!-- Book Info -->

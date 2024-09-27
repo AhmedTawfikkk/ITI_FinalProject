@@ -11,8 +11,10 @@ class Book extends Model
     protected $fillable = [
         'title',
         'cover',
-        'describtion',
-        'author_id',
+        'description',
+        'Genre',
+        'published',
+        'author_name'
     ];
 
     public function borrowedBooks(){
