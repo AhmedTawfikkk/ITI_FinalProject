@@ -1,12 +1,13 @@
 <?php
 
-use App\Http\Middleware\CheckAdminRole;
-use App\Http\Middleware\RedirectIfAuthenticated;
+use Filament\Facades\Filament;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckAdminRole;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\StudentController;
+use App\Http\Middleware\RedirectIfAuthenticated;
 use App\Http\Controllers\BorrowedBooksController;
 
 
@@ -34,10 +35,6 @@ require __DIR__.'/auth.php';
 
 Route::get('/', [HomeController::class, 'index'])->middleware(RedirectIfAuthenticated::class)->name('home');
 
-// Route::middleware(['auth', CheckStudentRole::class])->group(function () {
-// Student Dashboard
-Route::get('/student/dashboard', [StudentController::class, 'dashboard'])->name('student.dashboard');
-
 // View all books
 Route::get('/books', [BookController::class, 'index'])->name('books.index');
 
@@ -62,9 +59,3 @@ Route::post('/student/profile/edit/photo',[StudentController::class,'uploadphoto
 
 
 
-
-
-
-Route::middleware(['auth', CheckAdminRole::class])->group(function () {
-    route::get('/admin/borrowed-books',[BorrowedBooksController::class,'index']);
-});

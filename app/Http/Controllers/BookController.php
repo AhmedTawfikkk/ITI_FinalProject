@@ -36,7 +36,9 @@ class BookController extends Controller
     public function return($borrowedbook_id){
         $borrowedbook=BorrowedBook::find($borrowedbook_id);
         $borrowedbook->returned=true;
+        $borrowedbook->returned_date=now();
         $borrowedbook->save();
+
 
         $book=Book::find($borrowedbook->book_id);
         $book->available = true;
@@ -78,7 +80,7 @@ class BookController extends Controller
     }
     public function update(Request $request, string $id)
     {
-        $post=post::find($id);
+        $post=Book::find($id);
         $post->title = $request['title'];
         $post->body = $request['body'];
         $post->updated_at = now();

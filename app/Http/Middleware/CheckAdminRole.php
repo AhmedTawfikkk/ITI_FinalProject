@@ -16,14 +16,14 @@ class CheckAdminRole
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if(Auth::user()&& Auth::user()->role->title == 'admin')
+        {
+            return $next($request);
+        }
+        else{
+        abort(403,"you are not allowed to access this page");
+        }
 
-         if (Auth::check()) {
-            // Check if the user has the role of "student"
-            if (Auth::user()->role->title === 'admin') {
-                return $next($request);
-            }
     }
-    // If the user does not have the "student" role, redirect to a different page
-    return redirect('/home')->with('error', 'Access denied.'); // or to any page you'd prefer
 }
-}
+

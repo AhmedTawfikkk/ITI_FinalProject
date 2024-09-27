@@ -10,7 +10,8 @@ class StudentController extends Controller
 {
     public function viewprofile(){
         $user=Auth::user();
-        $borrowedbooks=$user->borrowedbooks()->where('returned',false)->get();
+        
+        $borrowedbooks=$user->borrowedbooks()->where('returned',false)->get(); 
         return view('student.profile', compact('user','borrowedbooks'));
     }
     
