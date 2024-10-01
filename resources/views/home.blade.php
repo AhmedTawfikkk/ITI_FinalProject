@@ -6,6 +6,7 @@
     <title>Welcome to Our Online Library</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link rel="icon" href="{{ asset('images/logo.png') }}" type="image/png">
 
     <style>
         
