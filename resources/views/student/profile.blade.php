@@ -71,11 +71,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 py-12 mt-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-400">
-            <p>&copy; 2024 Online Library. All Rights Reserved.</p>
-        </div>
-    </footer>
+    <x-footer/>
 </body>
 
 </html>

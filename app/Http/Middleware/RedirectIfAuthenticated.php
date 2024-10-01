@@ -16,9 +16,9 @@ class RedirectIfAuthenticated
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, $guard=null): Response
+    public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard($guard)->check()) {
+        if (Auth::user()) {
             // Redirect to a specific route if the user is authenticated
             return redirect('/books'); // Change this to your desired route
         }

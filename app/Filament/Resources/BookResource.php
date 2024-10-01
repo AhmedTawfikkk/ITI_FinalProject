@@ -38,7 +38,7 @@ class BookResource extends Resource
 
                     Textarea::make('description')
                     ->required()
-                    ->rules([ 'min:10', 'max:1000', 'regex:/^[a-zA-Z\s]+$/']),
+                    ->rules([ 'min:10', 'max:1000']),
 
                     TextInput::make('Genre')
                     ->required()
