@@ -1,4 +1,8 @@
-
+<p
+    align="center"
+    style="text-align: center">
+    <img src="/Online library Management System_transparent-.png" style="width: 600px;">
+</p>
 
 <h1 style="text-align: center;">ITI-Summer Training Project</h1>
 
@@ -28,4 +32,5 @@ they can return it back to the shelf)
 - Students can update their own profile.
 - Students can view the borrowed book and book
 return date-time.
+
 
